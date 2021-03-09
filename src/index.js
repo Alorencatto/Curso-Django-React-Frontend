@@ -4,9 +4,8 @@ import './index.css';
 // import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-//Importando o list component
-import ListComponent from './ListComponent';
-
+//Importando os componenetes
+import UserLists from './UserLists';
 // function Test(){
 //   return <h1>Hello World</h1>
 // }
@@ -14,9 +13,7 @@ import ListComponent from './ListComponent';
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* <App /> */}
-    <ListComponent/>
-    {/* <Test /> */}
+    <UserLists/>
   </React.StrictMode>,
   document.getElementById('root')
 );
