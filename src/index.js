@@ -6,14 +6,24 @@ import reportWebVitals from './reportWebVitals';
 
 //Importando os componenetes
 import UserLists from './UserLists';
-// function Test(){
-//   return <h1>Hello World</h1>
-// }
+
+//Testes
+
+import DataTable from './table_test';
+
+function Test(){
+  return <h1>Hello World</h1>
+}
+
+
 
 
 ReactDOM.render(
   <React.StrictMode>
+    {/* <Test/> */}
     <UserLists/>
+    {/* Teste */}
+    {/* <DataTable/> */}
   </React.StrictMode>,
   document.getElementById('root')
 );
