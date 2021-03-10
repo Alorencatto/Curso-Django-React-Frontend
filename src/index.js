@@ -3,28 +3,36 @@ import ReactDOM from 'react-dom';
 import './index.css';
 // import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import App from './App';
 
 //Importando os componenetes
 import UserLists from './UserLists';
-
+import LoginComponent from './LoginComponent';
 //Testes
+import Teste from './teste';
 
 import DataTable from './table_test';
 
-function Test(){
-  return <h1>Hello World</h1>
-}
 
-
-
+// ReactDOM.render(
+//   <React.StrictMode>
+//     <LoginComponent/>
+//     {/* <DataTable/> */}
+//   </React.StrictMode>,
+//   document.getElementById('root')
+// );
 
 ReactDOM.render(
-  <React.StrictMode>
-    {/* <Test/> */}
-    <UserLists/>
-    {/* Teste */}
-    {/* <DataTable/> */}
-  </React.StrictMode>,
+  (
+      <Router>
+              <Switch>
+                  <Route exact path="/" component={LoginComponent}/>
+                  <Route path="/teste" component={Teste}/>
+                  <Route path="/table" component={DataTable}/>
+              </Switch>
+      </Router>
+  ),
   document.getElementById('root')
 );
 

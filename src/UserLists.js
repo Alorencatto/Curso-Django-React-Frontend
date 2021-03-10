@@ -1,11 +1,10 @@
 import React from 'react';
 import ListComponent from './ListComponent';
-import LoginComponent from './LoginComponent';
 
 export default class UserLists extends React.Component{
 
     //Chamanda a API
-    state ={ lists: [], loading: true}
+    state ={ lists: [], loading: true, token: null}
 
     //FUnção que chama a API
     async componentDidMount() {
@@ -29,9 +28,7 @@ export default class UserLists extends React.Component{
         const listsApi = this.state.lists;
         var token = localStorage.getItem('token');
         
-        if (!token)
-            return <LoginComponent/>
-        else
+       
             return (
                 // <div>
                 //     <ListComponent listName={'Minha Lista 1'}/>

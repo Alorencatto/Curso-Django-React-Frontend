@@ -26,23 +26,42 @@ export default class LoginComponent extends React.Component{
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username: this.state.username, password: this.state.password })
         };
-        fetch(url,requestOptions)
+        fetch(url, requestOptions)
             .then(response => response.json())
-            // .then(data =>console.log(data));
-            .then(data =>localStorage.setItem('token', data.token));
+            .then(data => {
+                localStorage.setItem('token', data.token);
+                this.setState({token: data.token});
+            });
         event.preventDefault();
       }
+
+      logout(){
+        localStorage.removeItem('token');
+        this.setState({token: null});
+        } 
     
       render() {
+        var token = localStorage.getItem('token');
+
+        if (!token)
+          return (
+            <form onSubmit={this.handleSubmit}>
+              <label>
+                Nome:
+                <input type="text" value={this.state.username} onChange={this.handleChange} />
+                <input type="password" value={this.state.password} onChange={this.handleChangePassword} />
+              </label>
+              <input type="submit" value="Enviar" />
+            </form>
+          );
+        else
         return (
-          <form onSubmit={this.handleSubmit}>
-            <label>
-              Nome:
-              <input type="text" value={this.state.username} onChange={this.handleChange} />
-              <input type="password" value={this.state.password} onChange={this.handleChangePassword} />
-            </label>
-            <input type="submit" value="Enviar" />
-          </form>
-        );
+          <div>
+              <UserLists />
+              <button onClick={() => this.logout()}> Logout </button>
+              <a href="teste">Ir para a página teste</a><br></br>
+              <a href="table">Ir para a página da tabela</a>
+          </div>
+      )
       }
     }
