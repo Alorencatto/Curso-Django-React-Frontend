@@ -76,7 +76,6 @@ export default class DataTable extends React.Component {
     console.log(rows)
 
 
-
     return (
       <div style={{ height: 400, width: '100%' }}>
         <DataGrid rows={rows} columns={columns} pageSize={5} checkboxSelection />
